@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: 'Montserrat', sans-serif;
+}
+body::-webkit-scrollbar{
+    width: 0;
+}
+section{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+.vid_container{
+    width: 100%;
+    height: 100vh;
+}
+.vid_container > video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.titles{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.342);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.titles > h1{
+    font-weight: 900;
+    font-size: clamp(50px, 8vw, 100px);
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+}
+.titles > h1 > span{
+    color: cornflowerblue;
+}
+.contador{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.contador > h2{
+    color: #fff;
+    font-size: clamp(20px, 2.5vw, 25px);
+    text-align: center;
+}
+.countdown{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.countdown > .container_dia,.container_horas,.container_minutos,.container_segundos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.178);
+    backdrop-filter: blur(10px);
+    padding: 5%;
+    border-radius: 10px;
+}
+.name{
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+}
+.time{
+    font-size: 50px;
+    color: #fff;
+}
+footer{
+    background-color: cornflowerblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 50px;
+}
+footer > h2{
+    color: #fff;
+    font-weight: 400;
+    font-size: 15px;
+}
+footer > h2 > a{
+    color: #fff;
+    cursor: pointer;
+
+}
+footer > h2 > a > i{
+    transition: all 0.5s ease;
+}
+footer > h2 > a > i:hover{
+    transform: translateY(-3px);
+}
+footer > span{
+    color: #fff;
+    font-size: 12px;
+}
+@media (max-width: 687px){
+    .countdown{
+        width: 40%;
+        gap: 10px;
+        
+    }
+    .countdown > .container_dia,.container_horas,.container_minutos,.container_segundos{
+        width: 60%;
+        gap: 5px;
+    }
+    .name{
+        font-size: 15px;
+    }
+    .time{
+        font-size: 30px;
+    }
+    .vid_container{
+        width: 100%;
+        height: 100vh;
+    }
+    .vid_container > video{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    footer{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    }
+}
