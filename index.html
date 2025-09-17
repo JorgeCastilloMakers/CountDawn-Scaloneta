@@ -39,22 +39,60 @@
             </div>
         </div>
         <div class="vid_container">
-            <video autoplay muted playsinline plays-inline loop>
-                <source src="/assets/bg-video.mp4">
-                
-            </video>
-            <audio autoplay>
-                <source src="/assets/bg-sound.mp3" type="audio/mp3">
-                    Tu navegador no soporta audio HTML5.
-            </audio>
+            <div style="padding:56.25% 0 0 0;position:relative;">
+                <iframe 
+                src="https://player.vimeo.com/video/1119595393?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" 
+                frameborder="0" 
+                allow="autoplay; fullscreen"
+                allowfullscreen
+                style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                title="ARGENTINA vs FRANCIA - FINAL Qatar 2022">
+            </iframe>
         </div>
-
-
-
+        <button id="toggleAudio" class="audio-control">
+            <i class="fa-solid fa-volume-xmark"></i>
+        </button>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Crear instancia del reproductor
+                var iframe = document.querySelector('iframe');
+                var player = new Vimeo.Player(iframe);
+                var audioButton = document.getElementById('toggleAudio');
+                var audioIcon = audioButton.querySelector('i');
+                var audioEnabled = false;
+                
+                // Inicialmente silenciado
+                player.setVolume(0);
+                
+                // Función para alternar audio
+                audioButton.addEventListener('click', function() {
+                    if (audioEnabled) {
+                        player.setVolume(0);
+                        audioIcon.className = 'fa-solid fa-volume-xmark';
+                        audioEnabled = false;
+                    } else {
+                        player.setVolume(1);
+                        audioIcon.className = 'fa-solid fa-volume-high';
+                        audioEnabled = true;
+                    }
+                });
+                
+                // Asegurarse de que el video se reproduzca en bucle
+                player.on('ended', function() {
+                    player.play();
+                });
+            });
+        </script>
+        <!-- <audio autoplay>
+            <source src="/assets/bg-sound.mp3" type="audio/mp3">
+                Tu navegador no soporta audio HTML5.
+        </audio> -->
+        </div>
     </section>
     <footer>
-        <h2>Diseñado por Jorge Castillo <a href="https://github.com/JorgeCastilloMakers"><i class="fa-brands fa-github"></i></a> con ❤️ para Nucba y todos los Argentinos</h2>
-        <span>Permítanme volver a ilusionarme - Escrito por Miky Calvo - Voz y edición por Benjamín Guillou</span>
+        <h2>Desarrollado por Jorge Castillo <a href="https://github.com/JorgeCastilloMakers"><i class="fa-brands fa-github"></i></a> con ❤️ para todos los Argentinos🧉 ⭐⭐⭐</h2>
+        <!-- <span>Permítanme volver a ilusionarme - Escrito por Miky Calvo - Voz y edición por Benjamín Guillou</span> -->
     </footer>
     <script src="/main.js"></script>
 </body>

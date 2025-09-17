@@ -12,7 +12,7 @@ body::-webkit-scrollbar{
 }
 section{
     width: 100%;
-    height: 100vh;
+    height: 99vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@ section{
 }
 .vid_container{
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 .vid_container > video{
     width: 100%;
@@ -39,6 +39,7 @@ section{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    z-index: 1;
 }
 .titles > h1{
     font-weight: 900;
@@ -92,6 +93,38 @@ section{
     font-size: 50px;
     color: #fff;
 }
+.titles{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.342);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.audio-control {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.audio-control:hover {
+    background-color: rgba(100, 149, 237, 0.8);
+    transform: scale(1.1);
+}
 footer{
     background-color: cornflowerblue;
     display: flex;
@@ -122,6 +155,10 @@ footer > span{
     font-size: 12px;
 }
 @media (max-width: 687px){
+    .titles {
+        justify-content: start;
+        padding-top: 20px;
+    }
     .countdown{
         width: 40%;
         gap: 10px;
@@ -145,6 +182,16 @@ footer > span{
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+    .vid_container > div{
+        width: 100vw;
+        height: 100vh;
+        padding: 0 !important;
+        background-color: black;
+    }
+    .vid_container > iframe{
+        width: 100vw;
+        height: 100vh;
     }
     footer{
     width: 100%;
